@@ -9,22 +9,34 @@
 <body>
 
     <section class="container my-5">
-        <h1 class="text-center">Black and White</h1>
-        <form action="/procesa_imagen" id="formulario_ingresa_imagen">
-            <div class="input-group my-4">
-                <label class="input-group-text bg-success text-light" id="url" for="input_url"
-                    title="Ingresa la url de una imagen en el input">URL</label>
-                <input name="imagen" type="text" class="form-control" placeholder="Ingresa la url de una imagen"
-                    aria-label="Ingresa la url de una imagen" aria-describedby="url" id="input_url" />
+        <h1 class="titulo text-center">Black and White</h1>
+        <form id="formulario" class="container">
+
+            <div class="mb-3">
+                <input type="text" class="form-control" id="ingreseUrl" placeholder="Ingrese URL">
             </div>
-            <button id="btn_enviar_url" type="submit" class="btn btn-primary">Subir
-                Imagen al Servidor</button>
-            <button type="button" id="btn_limpiar" class="btn btn-danger mt-3"
-                title="Limpiar el campo de URL">Limpiar</button>
+            <button type="submit" class="btn btn-primary">Subir url</button>
         </form>
-        <div class="loader" id="loader"></div>
     </section>
 
+    <!-- Modal Muestra imagen-->
+    <div class="modal fade" id="mostrarImagen" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="infoImagen">
+                    {{!-- <div class="row"></div> --}}
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="/js/main.js"></script>
 
 </body>
 
