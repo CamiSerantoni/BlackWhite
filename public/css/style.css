@@ -1,3 +1,37 @@
-h1{
-    color: red;
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+
+body {
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+     font-family: 'Pacifico', cursive;
+}
+
+h1 {
+    color: rgb(241, 239, 239);
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-family: 'Pacifico', cursive;
+}
+button[type="submit"] {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid #ffffff;
+    background-color: #1b1b1b;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #2f3236;
+    border: 2px solid #ffffff;
+}
+
+form {
+    margin: 20px auto;
+    width: 80%;
 }
