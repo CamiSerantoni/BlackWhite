@@ -1,9 +1,9 @@
 import express from 'express'
 import Jimp from 'jimp';
-import axios from 'axios'
-import fs from 'fs';
+// import axios from 'axios'
+// import fs from 'fs';
 import { v4 as uuidv4 } from 'uuid';
-
+import exphbs from 'express-handlebars';
 import { create } from 'express-handlebars';
 
 //Creación variables de entorno
@@ -39,9 +39,16 @@ const hbs = create({
 // Configurar el motor de plantilla, para esto debemos usar el método “engine”,
 // el cual define el motor de plantillas que utilizaremos en nuestro servidor con Express.
 app.engine("handlebars", hbs.engine);
-
+const handlebars = exphbs.create({
+    defaultLayout: __dirname + "/views/layout/main.handlebars",
+    layoutsDir: __dirname + "/views",
+    partialsDir: __dirname + "/views"
+})
 // Se especifica al motor que reconozca la extensión handlebars
 app.set("view engine", "handlebars");
+
+
+
 
 // Creamos el routing
 app.get('/', (req,res) => {
@@ -51,39 +58,14 @@ app.get('/', (req,res) => {
     })
 })
 
-app.post('/upload', (req,res) => {
-
-    console.log('req.body-->', req.body )
-    const { url } = req.body
-    
-    const nombre = `${uuidv4().slice(0,6)}.jpg`
-    console.log(nombre)
-    const encode = (data) => {
-        let buf = Buffer.from(data);
-        let base64 = buf.toString('base64');
-        return base64
-    }
-
-    Jimp.read(url)
-    .then(imagen => {
-        return imagen
-            .resize(350, Jimp.AUTO) // Cambiado a 350px de ancho
-            .greyscale()
-            .writeAsync(`./images/${nombre}`);
-    })
-    .then(() => {
-        fs.readFile(`./images/${nombre}`, (err, Imagen) => {
-            if(err) {
-                console.error('Error al leer el archivo:', err);
-                return;
-            }
-            res.send(`<img class="img-fluid" src='data:image/jpeg;base64,${encode(Imagen)}' />
-                <p>La ${nombre} se ha procesado correctamente!! </p>
-            `)
-        })
-    })
-    .catch(err => {
-        console.error(err);
-        res.status(500).send('Hubo un error al procesar la imagen');
-    });
+app.get("/cargar", async (req, res) => {
+    const {imagen} = req.query
+    const nombreImagen = `${uuidv4().slice(30)}.jpeg`
+    console.log(nombreImagen)
+    const IMG = await Jimp.read(imagen)
+    await IMG
+    .resize(350, Jimp.AUTO)
+    .greyscale()
+    .writeAsync(__dirname + "/public/img/" + nombreImagen)
+    res.sendFile(__dirname + "/public/img/" + nombreImagen)
 })
