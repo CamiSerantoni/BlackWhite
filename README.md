@@ -39,7 +39,9 @@ UUID y con extensión “jpg”, por ejemplo: 3dcb6d.jpeg. (2 Puntos)
 El proyecto está estructurado de la siguiente manera:
 
 
-## La solución se ve de la siguiente manera: 
+## Vista: 
+
+La solución se ve de la siguiente manera: 
 
 ![image](https://github.com/CamiSerantoni/BlackWhite/assets/152921799/b3cabdc2-eee4-41e1-9c65-662e72440b10)
 
