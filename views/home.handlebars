@@ -1,3 +1,13 @@
+<h1>Black and White</h1>
 
-  {{!--   <h3>Desafio Black and White</h3>
-    <hr> --}}
+<form action="/cargar" class="d-flex justify-content-center mt-5" >
+    <input type="text" name="imagen" class="form-control" placeholder="Ingrese la URL de la imagen">
+    <button type="submit" class="btn btn-primary"> Subir la imagen</button>
+</form>
+
+<script>
+    window.onload = function() {
+        const form = document.querySelector('form');
+        form.reset();
+    }
+</script>
