@@ -70,7 +70,7 @@ Para ejecutar el proyecto localmente, asegúrate de tener instalado Node.js y np
 4. Inicia el servidor local: `npm run dev`
 5. Abre tu navegador web y accede a `http://localhost:3000` para ver la aplicación en funcionamiento.
 
-## Integrante: 😺
+## Integrantes: 😺
 
 - Ma Cristina Contreras C.
 - Camila Serantoni R. 
