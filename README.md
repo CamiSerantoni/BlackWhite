@@ -72,4 +72,5 @@ Para ejecutar el proyecto localmente, asegúrate de tener instalado Node.js y np
 
 ## Integrante: 😺
 
+- Ma Cristina Contreras C.
 - Camila Serantoni R. 
